@@ -27,6 +27,7 @@ import LINUX from '../assets/linux.png';
 import POSTMAN from '../assets/postman.png';
 import POTSGRE from '../assets/postgre.png';
 import PRISMA from '../assets/prisma.jpg';
+
 // import { HorizontalLine } from './HorizontalLine'
  const SkillCard = ({ name, title, image }) => {
     return (

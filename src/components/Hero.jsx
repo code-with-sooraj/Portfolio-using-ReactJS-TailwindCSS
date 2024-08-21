@@ -7,6 +7,8 @@ import Profile from '../assets/bg-less.png'
 import About from './About'
 import Skills from './Skill'
 import Projects from './Projects'
+import Contact from './contact/Contact'
+import Achievements from './Achievements'
 
 const navigation = [
     { name: 'Home', href: '#home' },
@@ -157,11 +159,18 @@ export const Hero = () => {
             <section id="about">
                 <About />
             </section>
+            
+            <section id="projects">
+                <Projects />
+            </section>
             <section id="skills">
                 <Skills />
             </section>
-            <section id="projects">
-                <Projects />
+            <section id="achievements">
+                <Achievements/>
+            </section>
+            <section id="contact">
+                <Contact/>
             </section>
             
         </div>
