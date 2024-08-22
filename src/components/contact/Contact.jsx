@@ -39,7 +39,7 @@ function Contact() {
           />
         </div>
         <div className="formGroup">
-          <textarea
+          <textarea className='p-5'
             name="message"
             id="message"
             placeholder="Message"

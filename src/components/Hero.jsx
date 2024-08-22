@@ -1,25 +1,32 @@
-// 'use client'
-import { useState } from 'react'
-import { Dialog, DialogPanel } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Logo from '../assets/cn-bg-less.png'
-import Profile from '../assets/bg-less.png'
-import About from './About'
-import Skills from './Skill'
-import Projects from './Projects'
-import Contact from './contact/Contact'
-import Achievements from './Achievements'
+import { useState } from 'react';
+import { Dialog, DialogPanel } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import Logo from '../assets/cn-bg-less.png';
+import Profile from '../assets/bg-less.png';
+import About from './About';
+import Skills from './Skill';
+import Projects from './Projects';
+import Contact from './contact/Contact';
+import Achievements from './Achievements';
+import TypedIntro from './TypedIntro';
 
 const navigation = [
     { name: 'Home', href: '#home' },
     { name: 'About Me', href: '#about' },
-    { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
-    
-]
+    { name: 'Skills', href: '#skills' },
+    { name: 'Achievements', href: '#achievements' },
+    { name: 'Contact', href: '#contact' },
+];
+
 
 export const Hero = () => {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    const handleMobileLinkClick = () => {
+        setMobileMenuOpen(false);
+    };
+
     return (
         <div className="bg-white" id="home">
             <header className="absolute inset-x-0 top-0 z-50">
@@ -42,7 +49,11 @@ export const Hero = () => {
                     </div>
                     <div className="hidden lg:flex lg:gap-x-12">
                         {navigation.map((item) => (
-                            <a key={item.name} href={item.href} className="text-sm p-2 font-semibold leading-6 text-gray-900 hover:bg-gray-900 hover:text-white hover: rounded-full">
+                            <a
+                                key={item.name}
+                                href={item.href}
+                                className="text-sm p-2 font-semibold leading-6 text-gray-900 hover:bg-gray-900 hover:text-white hover: rounded-full"
+                            >
                                 {item.name}
                             </a>
                         ))}
@@ -53,12 +64,8 @@ export const Hero = () => {
                     <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                         <div className="flex items-center justify-between">
                             <a href="#" className="-m-1.5 p-1.5">
-                                <span className="sr-only">Your Company</span>
-                                <img
-                                    alt=""
-                                    src={Logo}
-                                    className="h-8 w-auto"
-                                />
+                                <span className="sr-only">My Portfolio</span>
+                                <img alt="" src={Logo} className="h-8 w-auto" />
                             </a>
                             <button
                                 type="button"
@@ -76,6 +83,7 @@ export const Hero = () => {
                                         <a
                                             key={item.name}
                                             href={item.href}
+                                            onClick={handleMobileLinkClick}
                                             className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                         >
                                             {item.name}
@@ -95,51 +103,44 @@ export const Hero = () => {
                     <div
                         style={{
                             clipPath:
-                                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5%                             58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+                                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
                         }}
                         className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
                     />
                 </div>
-                <div className='flex mt-20'>
-                    <div className="mt-20">
+                <div className="lg:m-20 flex flex-col-reverse items-center lg:flex-row lg:items-start lg:justify-center mt-20">
+                    <div className="ml=7 mt-20 text-justify lg:text-left lg:mt-0">
                         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                                 Explore my work, learn about my journey, and feel free to get in touch!{' '}
-                                <a href="#" className="font-semibold text-indigo-600">
+                                <a href="#about" className="font-semibold text-indigo-600">
                                     <span aria-hidden="true" className="absolute inset-0" />
                                     Read more <span aria-hidden="true">&rarr;</span>
                                 </a>
                             </div>
                         </div>
-                        <div className="text-center">
-                            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                                Welcome to my Portfolio
-                            </h1>
-                            <p className="mt-6 text-lg leading-8 text-gray-600">
-                                Hi, <b>I'm Sourav</b>, a passionate Software Developer dedicated to creating innovative and efficient software solutions.
-                            </p>
-                            <div className="mt-10 flex items-center justify-center gap-x-6">
-                                <a
-                                    href="#"
-                                    className="rounded-md bg-gray-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                >
-                                    Get started
-                                </a>
-                                <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                                    Learn more <span aria-hidden="true">→</span>
-                                </a>
-                            </div>
+                        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl">
+  Welcome to my Portfolio
+</h1>
+<p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl md:text-2xl lg:text-3xl">
+  Hi, <b>I'm Sourav</b>, a passionate Software Developer dedicated to creating innovative and efficient software solutions.
+</p>
+<div className=" lg:flex items-center justify-center lg:justify-start gap-x-6 mt-10">
+  <h2 className="text-2xl font-serif">I'm a</h2>
+    <div >
 
-                            {/* Mobile Profile Image */}
-                            <div className='mt-20 lg:hidden'>
-                                <img src={Profile} alt="" className="rounded-full" />
-                            </div>
-                        </div>
+         <TypedIntro />
+  </div>
+</div>
 
+                        {/* Mobile Profile Image */}
+                        {/* <div className="mt-20 lg:hidden">
+                            <img src={Profile} alt="" className="rounded-full" />
+                        </div> */}
                     </div>
 
                     {/* Desktop Profile Image */}
-                    <div className='hidden lg:block lg:ml-20'>
+                    <div className="lg:block lg:ml-20">
                         <img src={Profile} alt="" className="rounded-full" />
                     </div>
                 </div>
@@ -159,7 +160,6 @@ export const Hero = () => {
             <section id="about">
                 <About />
             </section>
-            
             <section id="projects">
                 <Projects />
             </section>
@@ -167,12 +167,11 @@ export const Hero = () => {
                 <Skills />
             </section>
             <section id="achievements">
-                <Achievements/>
+                <Achievements />
             </section>
             <section id="contact">
-                <Contact/>
+                <Contact />
             </section>
-            
         </div>
-    )
+    );
 };

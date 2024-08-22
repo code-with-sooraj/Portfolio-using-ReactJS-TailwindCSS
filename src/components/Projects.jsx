@@ -19,7 +19,7 @@ function ProjectCard({ title, description, imageSrc, techStack, link }) {
       </div>
       
       <h2 className="text-xl font-bold mb-2 text-center">{title}</h2>
-      <p className="text-gray-600 m-4 text-center">{description}</p>
+      <p className="text-gray-600 m-4 text-justify">{description}</p>
     
       <p className="text-black font-bold text-center">Technology Stack: <span className='text-blue-500'>{techStack}</span></p>
   
