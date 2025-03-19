@@ -119,7 +119,7 @@ export const Hero = () => {
                                 </a>
                             </div>
                         </div>
-                        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl">
+                        <h1 className="text-4xl font-bold text-center text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl">
   Welcome to my Portfolio
 </h1>
 <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl md:text-2xl lg:text-3xl">
